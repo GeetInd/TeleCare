@@ -1,0 +1,30 @@
+<%@ Page Title="Contact" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeFile="Contact.aspx.cs" Inherits="Contact" %>
+
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <h2><%: Title %>.</h2>
+    <h3>Your contact page.</h3>
+    <script type="text/javascript">
+    function Validate() {
+        //Regex for Valid Characters i.e. Alphabets, Numbers and Space.
+        var regex = /^[A-Za-z0-9 ]+$/
+
+        //Validate TextBox value against the Regex.
+        var isValid = regex.test(document.getElementById("txtCity").value);
+        if (!isValid) {
+            alert("Contains Special Characters.");
+        } else {
+            alert("Does not contain Special Characters.");
+        }
+
+        return isValid;
+    }
+</script>
+
+    <asp:Label ID="City" runat="server" Text="City"></asp:Label> <asp:TextBox ID="txtCity" OnTextChanged="Validate" runat="server"></asp:TextBox>
+     <asp:Label ID="State" runat="server" Text="State"></asp:Label> <asp:DropDownList ID="DropDownList1" runat="server">
+         <asp:ListItem>California</asp:ListItem>
+     </asp:DropDownList>
+
+   
+</asp:Content>
+
